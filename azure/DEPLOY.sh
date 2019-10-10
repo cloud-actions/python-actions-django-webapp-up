@@ -23,7 +23,9 @@ az container create --resource-group $RESOURCE_GROUP --location $LOCATION \
     --cpu 1 \
     --memory 1 \
     --ports 80 \
-    --environment-variables LISTEN_PORT=80 \
+    --environment-variables \
+        LISTEN_PORT=80 \
+        DJANGO_ALLOWED_HOSTNAME="${CONTAINER_NAME}.${LOCATION}.azurecontainer.io" \
     --dns-name-label $CONTAINER_NAME
 FQDN=$(az container show -g $RESOURCE_GROUP --name $CONTAINER_NAME | jq -r .ipAddress.fqdn)
 echo "http://${FQDN}"
