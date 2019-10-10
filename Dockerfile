@@ -35,3 +35,6 @@ RUN touch /app/db.sqlite3 && chmod g+w /app/db.sqlite3
 
 # Make sure dependencies are installed
 RUN python3 -m pip install -r requirements.txt
+
+# Perform migration for SQLite
+RUN python manage.py migrate
