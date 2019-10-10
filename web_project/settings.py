@@ -31,11 +31,9 @@ DEBUG = True
 # domain to ALLOWED_HOSTS; you get an error message if you forget. When you add
 # a specific host, you must also add 'localhost' and/or '127.0.0.1' for local
 # debugging (which are enabled by default when ALLOWED_HOSTS is empty.)
-ALLOWED_HOSTS = [
-    #'localhost',
-    #'127.0.0.1'
-    #'vscode-django-tutorial.azurewebsites.net'  # Sample name only!
-]
+AZURE_APPSERVICE_HOSTNAME = os.environ.get('APPSETTING_WEBSITE_SITE_NAME', '')
+DJANGO_ALLOWED_HOSTNAME = os.environ.get('DJANGO_ALLOWED_HOSTNAME', '')
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", DJANGO_ALLOWED_HOSTNAME, f"{AZURE_APPSERVICE_HOSTNAME}.azurewebsites.net"]
 
 # Application definition
 
