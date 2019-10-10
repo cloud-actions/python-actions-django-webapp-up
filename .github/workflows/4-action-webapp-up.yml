@@ -1,9 +1,9 @@
-name: 4-action-acr-aci
+name: 4-action-webapp-up
 
 on:
   push:
     branches:
-    - 2-app-python-django
+    - 2-app-python-django-webapp-up
 
 jobs:
   build-and-deploy:
